@@ -15,7 +15,7 @@
 </ul>
 <h3 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h3><ul>
 <li>不妨先将 $a$ 从小到大排序。</li>
-<li>设最后每个数都等于 $a<em>n+x(x\geq 0)$。那么总代价为 $\sum\limits</em>{i=1}^n popcount(a_n+x-a_i)$。</li>
+<li>设最后每个数都等于 $a_n+x(x\geq 0)$。那么总代价为 $\sum\limits_{i=1}^n popcount(a_n+x-a_i)$。</li>
 <li>现在要找一个 $x$ 使得答案最小。不妨先将 $a_i$ 变为原先的 $a_n-a_i$。</li>
 <li>那么现在总代价为 $\sum\limits_{i=1}^n popcount(x+a_i)$。</li>
 </ul>
