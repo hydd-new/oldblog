@@ -1,0 +1,67 @@
+<!DOCTYPE html><html lang="zh-Hans"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="description" content="CF1204D"><meta name="keywords" content=""><meta name="author" content="hydd"><meta name="copyright" content="hydd"><title>CF1204D | hydd's blog</title><link rel="shortcut icon" href="/melody-favicon.ico"><link rel="stylesheet" href="/css/index.css?version=1.9.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css?version=1.9.0"><meta name="format-detection" content="telephone=no"><meta http-equiv="x-dns-prefetch-control" content="on"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.1.1/dist/instantsearch.min.css"><script src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.1.1/dist/instantsearch.min.js" defer></script><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><script src="https://v1.hitokoto.cn/?encode=js&amp;charset=utf-8&amp;select=.footer_custom_text" defer></script><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: {"appId":"2CAFBZ3M5Y","apiKey":"5de122b34815eb5afc30975eb4914f20","indexName":"hydd","hits":{"per_page":20},"languages":{"input_placeholder":"搜索文章","hits_empty":"找不到您查询的内容:${query}","hits_stats":"找到 ${hits} 条结果，用时 ${time} 毫秒"}},
+  localSearch: undefined,
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  hexoVersion: '5.4.0'
+} </script><meta name="generator" content="Hexo 5.4.0"></head><body><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar" data-display="true"><div class="toggle-sidebar-info text-center"><span data-toggle="切换文章详情">切换站点概览</span><hr></div><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar"></div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#sol"><span class="toc-text">sol</span></a></li></ol></div></div><div class="author-info hide"><div class="author-info__avatar text-center"><img src="/img/avatar.png"></div><div class="author-info__name text-center">hydd</div><div class="author-info__description text-center"></div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">文章</span><span class="pull-right">10</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">标签</span><span class="pull-right">9</span></a><a class="author-info-articles__categories article-meta" href="/categories"><span class="pull-left">分类</span><span class="pull-right">3</span></a></div><hr><div class="author-info-links"><div class="author-info-links__title text-center">Links</div><a class="author-info-links__name text-center" target="_blank" rel="noopener" href="https://qingyu.blog">Qingyu</a></div></div></div><div id="content-outer"><div id="top-container" style="background-image: url(https://cdn.jsdelivr.net/gh/hydd-new/image-hosting@master/topimg.jpg)"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">hydd's blog</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus">   <a class="site-page" href="/">主页</a><a class="site-page" href="/archives">归档</a><a class="site-page" href="/tags">标签</a><a class="site-page" href="/categories">分类</a></span><span class="pull-right"><a class="site-page social-icon search"><i class="fa fa-search"></i><span> 搜索</span></a></span></div><div id="post-info"><div id="post-title">CF1204D</div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2021-10-06</time><span class="post-meta__separator">|</span><i class="fa fa-inbox post-meta__icon" aria-hidden="true"></i><a class="post-meta__categories" href="/categories/CodeForces/">CodeForces</a></div></div></div><div class="layout" id="content-inner"><article id="post"><div class="article-container" id="post-content"><ul>
+<li>给定一个 01 串 $s$，要求你找到一个与 $s$ 长度相等的 01 串 $t$ 并满足以下条件：<ol>
+<li>对于任意的 $l,r(1\leq l\leq r\leq n)$，$s[l:r]$ 和 $t[l:r]$ 的最长不下降子序列长度相同；</li>
+<li>$t$ 中 $0$ 的数量尽可能多。</li>
+</ol>
+</li>
+<li>有多解输出任意一种。$|S|\leq 10^5$。<span id="more"></span>
+</li>
+</ul>
+<h3 id="sol"><a href="#sol" class="headerlink" title="sol"></a>sol</h3><ul>
+<li>这个题非常有意思。容易想到按照一个顺序依次确定每个位置的值。</li>
+<li><p>但是前面的位置确定了，当前位置的值不仅和之前的最长不下降子序列长度有关，还和 $1$ 的个数有关。</p>
+</li>
+<li><p>发现 <code>10</code> 是不能被其它等长的串所替换的，它的最长不下降子序列长度为 $1$，而其它等长的串都为 $2$。</p>
+</li>
+<li><p>有一个思路，就是把串中的 <code>10</code> 不断删除，直到不存在。但这样真的行吗？</p>
+</li>
+<li><p>删除某个 <code>10</code> 后对所有 $l,r$ 最长不下降子序列长度的影响：</p>
+<ol>
+<li>$l,r$ 完全包含被删除的 <code>10</code>，那么原先无论最长不下降子序列是怎么选的，都一定会选择 <code>10</code> 中的恰好一个数，现在它的长度必定减少 1；</li>
+<li>$l,r$ 和 被删除的 <code>10</code> 无交，那么最长不下降子序列长度不影响；</li>
+<li>$l,r$ 和 被删除的 <code>10</code> 有交但不包含，即 $l$ 或 $r$ 在 <code>10</code> 之间，如果是 $l$ 则原子序列一定会选择最左边的 $0$，如果是 $r$ 则原子序列一定会选择最右边的 $1$，删去后长度必定减少 1。</li>
+</ol>
+</li>
+<li>删去后的问题，如果 $s’$ 和 $t’$ 满足条件，那么加回这个 <code>10</code> 后仍然满足条件。</li>
+<li><p>所以可以一直删去 <code>10</code>，直到没有 <code>10</code>。考虑现在的串一定为 <code>00...011...1</code>，可以把所有数字都变成 $0$，所有 $l,r$ 最长不下降子序列长度不变。</p>
+</li>
+<li><p>具体实现可以从左到右扫描，维护一个栈记录之前还没被删去的 $1$ 的位置，如果当前为 $0$ 且栈不为空则可以和前面的一起删去，否则加入栈。最后栈中的 $1$ 即没有被删去的 $1$，都变为 $0$ 即可。</p>
+</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line">string s; <span class="keyword">int</span> top,t[<span class="number">110000</span>];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	cin&gt;&gt;s; <span class="keyword">int</span> n=s.<span class="built_in">length</span>();</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)</span><br><span class="line">		<span class="keyword">if</span> (s[i]==<span class="string">&#x27;1&#x27;</span>) t[++top]=i;</span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">if</span> (top) top--;</span><br><span class="line">	<span class="keyword">while</span> (top) s[t[top--]]=<span class="string">&#x27;0&#x27;</span>;</span><br><span class="line">	cout&lt;&lt;s&lt;&lt;endl;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">hydd</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://hydd-new.github.io/CF1204D/">https://hydd-new.github.io/CF1204D/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://hydd-new.github.io">hydd's blog</a>！</span></div></div><div class="post-meta__tag-list"></div><nav id="pagination"><div class="next-post pull-right"><a href="/CF1365F/"><span>CF1365F</span><i class="fa fa-chevron-right"></i></a></div></nav></div></div><footer class="footer-bg" style="background-image: url(https://cdn.jsdelivr.net/gh/hydd-new/image-hosting@master/topimg.jpg)"><div class="layout" id="footer"><div class="copyright">&copy;2020 - 2021 By hydd</div><div class="framework-info"><span>驱动 - </span><a target="_blank" rel="noopener" href="http://hexo.io"><span>Hexo</span></a><span class="footer-separator">|</span><span>主题 - </span><a target="_blank" rel="noopener" href="https://github.com/Molunerfinn/hexo-theme-melody"><span>Melody</span></a></div><div class="footer_custom_text">hitokoto</div></div></footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i><script src="https://cdn.jsdelivr.net/npm/animejs@latest/anime.min.js"></script><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@latest/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-ui-pack@latest/velocity.ui.min.js"></script><script src="/js/utils.js?version=1.9.0"></script><script src="/js/fancybox.js?version=1.9.0"></script><script src="/js/sidebar.js?version=1.9.0"></script><script src="/js/copy.js?version=1.9.0"></script><script src="/js/fireworks.js?version=1.9.0"></script><script src="/js/transition.js?version=1.9.0"></script><script src="/js/scroll.js?version=1.9.0"></script><script src="/js/head.js?version=1.9.0"></script><script src="/js/search/algolia.js"></script><script type="text/x-mathjax-config">MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+    processEscapes: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+  },
+  CommonHTML: {
+    linebreaks: { automatic: true, width: "90% container" }
+  },
+  "HTML-CSS": { 
+    linebreaks: { automatic: true, width: "90% container" }
+  },
+  "SVG": { 
+    linebreaks: { automatic: true, width: "90% container" }
+  }
+});
+</script><script type="text/x-mathjax-config">MathJax.Hub.Queue(function() {
+  var all = MathJax.Hub.getAllJax(), i;
+  for (i=0; i < all.length; i += 1) {
+    all[i].SourceElement().parentNode.className += ' has-jax';
+  }
+});
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><script>if(/Android|webOS|iPhone|iPod|iPad|BlackBerry/i.test(navigator.userAgent)) {
+  $('#nav').addClass('is-mobile')
+  $('footer').addClass('is-mobile')
+  $('#top-container').addClass('is-mobile')
+}</script><div class="search-dialog" id="algolia-search"><div class="search-dialog__title" id="algolia-search-title">Algolia</div><div id="algolia-input-panel"><div id="algolia-search-input"></div></div><hr><div id="algolia-search-results"><div id="algolia-hits"></div><div id="algolia-pagination"></div><div id="algolia-stats"></div></div><span class="search-close-button"><i class="fa fa-times"></i></span></div><div class="search-mask"></div></body></html>
