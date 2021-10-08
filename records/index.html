@@ -1,0 +1,93 @@
+<!DOCTYPE html><html lang="zh-Hans"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="description" content="records"><meta name="keywords" content=""><meta name="author" content="hydd"><meta name="copyright" content="hydd"><title>records | hydd's blog</title><link rel="shortcut icon" href="/melody-favicon.ico"><link rel="stylesheet" href="/css/index.css?version=1.9.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css?version=1.9.0"><meta name="format-detection" content="telephone=no"><meta http-equiv="x-dns-prefetch-control" content="on"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.1.1/dist/instantsearch.min.css"><script src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.1.1/dist/instantsearch.min.js" defer></script><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><script src="https://v1.hitokoto.cn/?encode=js&amp;charset=utf-8&amp;select=.footer_custom_text" defer></script><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: {"appId":"2CAFBZ3M5Y","apiKey":"5de122b34815eb5afc30975eb4914f20","indexName":"hydd","hits":{"per_page":20},"languages":{"input_placeholder":"搜索文章","hits_empty":"找不到您查询的内容:${query}","hits_stats":"找到 ${hits} 条结果，用时 ${time} 毫秒"}},
+  localSearch: undefined,
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  hexoVersion: '5.4.0'
+} </script><meta name="generator" content="Hexo 5.4.0"></head><body><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar" data-display="false"><div class="author-info"><div class="author-info__avatar text-center"><img src="/img/avatar.png"></div><div class="author-info__name text-center">hydd</div><div class="author-info__description text-center"></div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">文章</span><span class="pull-right">10</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">标签</span><span class="pull-right">9</span></a><a class="author-info-articles__categories article-meta" href="/categories"><span class="pull-left">分类</span><span class="pull-right">3</span></a></div><hr><div class="author-info-links"><div class="author-info-links__title text-center">Links</div><a class="author-info-links__name text-center" target="_blank" rel="noopener" href="https://qingyu.blog">Qingyu</a></div></div></div><nav id="nav" style="background-image: url(https://cdn.jsdelivr.net/gh/hydd-new/image-hosting@master/topimg.jpg)"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">hydd's blog</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus">   <a class="site-page" href="/">主页</a><a class="site-page" href="/archives">归档</a><a class="site-page" href="/tags">标签</a><a class="site-page" href="/categories">分类</a><a class="site-page" href="/records">记录</a></span><span class="pull-right"><a class="site-page social-icon search"><i class="fa fa-search"></i><span> 搜索</span></a></span></div><div id="site-info"><div id="site-title">hydd's blog</div><div id="site-sub-title"></div></div></nav><div id="content-outer"><div class="layout" id="content-inner"><article id="page"><h1>records</h1><div class="article-container"><h2 id="Practice1"><a href="#Practice1" class="headerlink" title="Practice1"></a>Practice1</h2><h3 id="B（CF1389E）"><a href="#B（CF1389E）" class="headerlink" title="B（CF1389E）"></a>B（CF1389E）</h3><ul>
+<li>数学 &amp; 推式子。<h4 id="Key"><a href="#Key" class="headerlink" title="Key"></a>Key</h4></li>
+<li>$d\mid ab \Rightarrow d\mid (a\times\gcd(b,d))\Rightarrow\frac{d}{gcd(b,d)}\mid a$。</li>
+<li>$1,2\cdots n$ 模 $k$ 同余的链，有 $n\bmod k$ 条长为 $\lfloor \frac{n}{k}\rfloor+1$，有 $k-(n\bmod k)$ 条长为 $\lfloor \frac{n}{k}\rfloor$。<h3 id="C（CF852I）"><a href="#C（CF852I）" class="headerlink" title="C（CF852I）"></a>C（CF852I）</h3></li>
+<li>树（括号序）上莫队。<h4 id="Note"><a href="#Note" class="headerlink" title="Note"></a>Note</h4></li>
+<li>出现次数为奇数才有贡献；</li>
+<li>如果是祖孙链需特判，否则需额外加上LCA。<h3 id="A（CF1184B2）"><a href="#A（CF1184B2）" class="headerlink" title="A（CF1184B2）"></a>A（CF1184B2）</h3></li>
+<li>网络流（二分图匹配）。<h4 id="Key-1"><a href="#Key-1" class="headerlink" title="Key"></a>Key</h4></li>
+<li>答案和加的个数形成一个单峰函数，所以要么不加 $\rm dummy\space bases$，要加就加 $n$ 个；</li>
+<li>点数很少，可以暴力建图。</li>
+</ul>
+<h2 id="Practice2"><a href="#Practice2" class="headerlink" title="Practice2"></a>Practice2</h2><h3 id="C（CF1316E）"><a href="#C（CF1316E）" class="headerlink" title="C（CF1316E）"></a>C（CF1316E）</h3><ul>
+<li>状压 dp。<h4 id="Key-2"><a href="#Key-2" class="headerlink" title="Key"></a>Key</h4></li>
+<li>$m$ 很小可以状压；</li>
+<li>确定了哪些数在 $m$ 个数中后，剩下的一定选 $a$ 最大的。故可以按照 $a$ 排序后 $dp$。<h3 id="D（CF559C）"><a href="#D（CF559C）" class="headerlink" title="D（CF559C）"></a>D（CF559C）</h3></li>
+<li><p>经典 $k^2$ 网格图有障碍路径计数。</p>
+</li>
+<li><p>设 $dp[i]$ 表示从左上到当前障碍点，不经过其它障碍点的方案数。</p>
+<h4 id="Key-3"><a href="#Key-3" class="headerlink" title="Key"></a>Key</h4></li>
+<li>转移容斥时，如果想枚举上一次碰到的障碍，不好做；改为枚举第一次碰到的障碍。<h4 id="Trick"><a href="#Trick" class="headerlink" title="Trick"></a>Trick</h4></li>
+<li>可以将右下看做一个障碍点，可以直接输出它的 $dp$ 值。<h3 id="A（CF1404C）"><a href="#A（CF1404C）" class="headerlink" title="A（CF1404C）"></a>A（CF1404C）</h3></li>
+<li><p>线段树 &amp; 树状数组。</p>
+</li>
+<li><p>考虑 $l=r=0$ 时的策略，为了不使得合法的变成不合法，一定会选择最右边的合法点删除，可以得到一个删除序列；</p>
+</li>
+<li>对于 $l=0$ 的情况，发现只需要把 $&gt;r$ 的数从删除序列中删去；</li>
+<li><p>对于原题，如果某一步出现了 $&lt;l$ 的数，说明当前没有 $\geq l$ 的合法点，故可以把删除序列从当前位置开始的后缀删去。</p>
+</li>
+<li><p>求删除序列可以使用线段树，求前缀 $&gt;r$ 的数的个数可以使用树状数组。</p>
+<h4 id="key"><a href="#key" class="headerlink" title="key"></a>key</h4></li>
+<li>发现 $l,r$ 对删除序列影响不大，只是保留前若干个数再删去其中最大的若干个数，不改变相对顺序，容易计算答案。</li>
+</ul>
+<h2 id="Practice3"><a href="#Practice3" class="headerlink" title="Practice3"></a>Practice3</h2><h3 id="C（CF1187E）"><a href="#C（CF1187E）" class="headerlink" title="C（CF1187E）"></a>C（CF1187E）</h3><ul>
+<li><p>树形 $dp$，换根。</p>
+</li>
+<li><p>发现答案即为以任意点为根，每个点子树大小之和（或深度之和）的最大值。</p>
+<h3 id="B（CF47D）"><a href="#B（CF47D）" class="headerlink" title="B（CF47D）"></a>B（CF47D）</h3></li>
+<li><p>暴搜。</p>
+</li>
+<li><p>发现 $C(35,5)=324632$ 很小，所以直接暴力 dfs。</p>
+<h3 id="A（CF898F）"><a href="#A（CF898F）" class="headerlink" title="A（CF898F）"></a>A（CF898F）</h3></li>
+<li>哈希。<h4 id="Key-4"><a href="#Key-4" class="headerlink" title="Key"></a>Key</h4></li>
+<li>设 $|a|$ 表示 $a$ 的位数。对于 $a+b=c$，<br>$\max(|a|,|b|)\geq |c|-1$。</li>
+<li>数据范围很大，但形成解的概率小，可以哈希。<h3 id="D（CF542A）"><a href="#D（CF542A）" class="headerlink" title="D（CF542A）"></a>D（CF542A）</h3></li>
+<li><p>树状数组。</p>
+</li>
+<li><p>前两种可以直接取前后缀最大值；</p>
+</li>
+<li>第三种可以排序后使用树状数组。<h4 id="Key-5"><a href="#Key-5" class="headerlink" title="Key"></a>Key</h4></li>
+<li>对于和 $[l,r]$ 有交的 $[x,y]$，一定有以下三种至少一种：<ol>
+<li>[x,y] 包含 $l$；</li>
+<li>[x,y] 包含 $r$；</li>
+<li>[x,y] 被 $[l,r]$ 完全包含。</li>
+</ol>
+</li>
+</ul>
+</div></article><nav id="pagination"><div class="pagination"></div></nav></div></div><footer class="footer-bg" style="background-image: url(https://cdn.jsdelivr.net/gh/hydd-new/image-hosting@master/topimg.jpg)"><div class="layout" id="footer"><div class="copyright">&copy;2020 - 2021 By hydd</div><div class="framework-info"><span>驱动 - </span><a target="_blank" rel="noopener" href="http://hexo.io"><span>Hexo</span></a><span class="footer-separator">|</span><span>主题 - </span><a target="_blank" rel="noopener" href="https://github.com/Molunerfinn/hexo-theme-melody"><span>Melody</span></a></div><div class="footer_custom_text">hitokoto</div></div></footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i><script src="https://cdn.jsdelivr.net/npm/animejs@latest/anime.min.js"></script><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@latest/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-ui-pack@latest/velocity.ui.min.js"></script><script src="/js/utils.js?version=1.9.0"></script><script src="/js/fancybox.js?version=1.9.0"></script><script src="/js/sidebar.js?version=1.9.0"></script><script src="/js/copy.js?version=1.9.0"></script><script src="/js/fireworks.js?version=1.9.0"></script><script src="/js/transition.js?version=1.9.0"></script><script src="/js/scroll.js?version=1.9.0"></script><script src="/js/head.js?version=1.9.0"></script><script src="/js/search/algolia.js"></script><script type="text/x-mathjax-config">MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+    processEscapes: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+  },
+  CommonHTML: {
+    linebreaks: { automatic: true, width: "90% container" }
+  },
+  "HTML-CSS": { 
+    linebreaks: { automatic: true, width: "90% container" }
+  },
+  "SVG": { 
+    linebreaks: { automatic: true, width: "90% container" }
+  }
+});
+</script><script type="text/x-mathjax-config">MathJax.Hub.Queue(function() {
+  var all = MathJax.Hub.getAllJax(), i;
+  for (i=0; i < all.length; i += 1) {
+    all[i].SourceElement().parentNode.className += ' has-jax';
+  }
+});
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><script>if(/Android|webOS|iPhone|iPod|iPad|BlackBerry/i.test(navigator.userAgent)) {
+  $('#nav').addClass('is-mobile')
+  $('footer').addClass('is-mobile')
+  $('#top-container').addClass('is-mobile')
+}</script><div class="search-dialog" id="algolia-search"><div class="search-dialog__title" id="algolia-search-title">Algolia</div><div id="algolia-input-panel"><div id="algolia-search-input"></div></div><hr><div id="algolia-search-results"><div id="algolia-hits"></div><div id="algolia-pagination"></div><div id="algolia-stats"></div></div><span class="search-close-button"><i class="fa fa-times"></i></span></div><div class="search-mask"></div></body></html>
