@@ -87,10 +87,10 @@
 <li>即上面的做法的 $b$ 顺序可以任意排列。</li>
 <li>依旧固定 $a$ 的最小值 $x(x\geq n-17)$：<ul>
 <li>设 $b_i=a_i-x$，那么：<ul>
-<li>$\exist k,b_k=0$</li>
+<li>$\exists k,b_k=0$</li>
 <li>$0\leq b_i\leq n+1-x$</li>
 <li>$b_1+b_2+\cdots+b_n\leq x$</li>
-<li>$\geq 1$ 个数 $\geq n+1-x$，$\geq 2$ 个数 \geq n-x$，…，$\geq n-x$ 个数 $\geq 2$。<br>这等价于 $\leq x$ 个数 $\leq 1$，$\leq x+1$ 个数 $\leq 2$，…，$\leq n-1$ 个数 $\leq n-x$（再加个 $\leq n$ 个数 $\leq n+1-x$ 也不影响）。</li>
+<li>$\geq 1$ 个数 $\geq n+1-x$，$\geq 2$ 个数 $\geq n-x$，…，$\geq n-x$ 个数 $\geq 2$。<br>这等价于 $\leq x$ 个数 $\leq 1$，$\leq x+1$ 个数 $\leq 2$，…，$\leq n-1$ 个数 $\leq n-x$（再加个 $\leq n$ 个数 $\leq n+1-x$ 也不影响）。</li>
 </ul>
 </li>
 <li>对 $b$ 计数，设 $dp[i][j][k]$ 表示考虑完值 $\leq i$ 的位置，共选了 $j(j\leq x+i-1)$ 个数，选的数之和为 $k$ 的方案数。转移枚举有 $t$ 个值为 $i$ 的位置，从 $\frac{dp[i-1][j-t][k-i*t]}{t!}$ 转移过来。除这个阶乘是因为组合数选位置，最后计算答案要乘上 $n!$。</li>
