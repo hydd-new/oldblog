@@ -1,0 +1,127 @@
+<!DOCTYPE html><html lang="zh-Hans"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="description" content="CF1603E"><meta name="keywords" content="计数dp"><meta name="author" content="hydd"><meta name="copyright" content="hydd"><title>CF1603E | hydd's blog</title><link rel="shortcut icon" href="/melody-favicon.ico"><link rel="stylesheet" href="/css/index.css?version=1.9.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css?version=1.9.0"><meta name="format-detection" content="telephone=no"><meta http-equiv="x-dns-prefetch-control" content="on"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.1.1/dist/instantsearch.min.css"><script src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.1.1/dist/instantsearch.min.js" defer></script><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><script src="https://v1.hitokoto.cn/?encode=js&amp;charset=utf-8&amp;select=.footer_custom_text" defer></script><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: {"appId":"2CAFBZ3M5Y","apiKey":"5de122b34815eb5afc30975eb4914f20","indexName":"hydd","hits":{"per_page":20},"languages":{"input_placeholder":"搜索文章","hits_empty":"找不到您查询的内容:${query}","hits_stats":"找到 ${hits} 条结果，用时 ${time} 毫秒"}},
+  localSearch: undefined,
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  hexoVersion: '5.4.0'
+} </script><meta name="generator" content="Hexo 5.4.0"></head><body><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar" data-display="true"><div class="toggle-sidebar-info text-center"><span data-toggle="切换文章详情">切换站点概览</span><hr></div><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar"></div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#sol"><span class="toc-text">sol</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%A4%E6%96%AD%E4%B8%80%E4%B8%AA%E4%BB%8E%E5%B0%8F%E5%88%B0%E5%A4%A7%E7%9A%84%E5%BA%8F%E5%88%97%E6%98%AF%E5%90%A6%E6%98%AF%E5%AE%8C%E7%BE%8E%E7%9A%84"><span class="toc-text">判断一个从小到大的序列是否是完美的</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%8E%E5%B0%8F%E5%88%B0%E5%A4%A7%E7%9A%84%E5%AE%8C%E7%BE%8E%E5%BA%8F%E5%88%97%E7%9A%84%E6%96%B9%E6%A1%88%E6%95%B0"><span class="toc-text">从小到大的完美序列的方案数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%8C%E7%BE%8E%E5%BA%8F%E5%88%97%E7%9A%84%E6%96%B9%E6%A1%88%E6%95%B0"><span class="toc-text">完美序列的方案数</span></a></li></ol></li></ol></div></div><div class="author-info hide"><div class="author-info__avatar text-center"><img src="/img/avatar.png"></div><div class="author-info__name text-center">hydd</div><div class="author-info__description text-center"></div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">文章</span><span class="pull-right">12</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">标签</span><span class="pull-right">10</span></a><a class="author-info-articles__categories article-meta" href="/categories"><span class="pull-left">分类</span><span class="pull-right">4</span></a></div><hr><div class="author-info-links"><div class="author-info-links__title text-center">Links</div><a class="author-info-links__name text-center" target="_blank" rel="noopener" href="https://qingyu.blog">Qingyu</a></div></div></div><div id="content-outer"><div id="top-container" style="background-image: url(https://cdn.jsdelivr.net/gh/hydd-new/image-hosting@master/topimg.jpg)"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">hydd's blog</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus">   <a class="site-page" href="/">主页</a><a class="site-page" href="/archives">归档</a><a class="site-page" href="/tags">标签</a><a class="site-page" href="/categories">分类</a><a class="site-page" href="/records">记录</a></span><span class="pull-right"><a class="site-page social-icon search"><i class="fa fa-search"></i><span> 搜索</span></a></span></div><div id="post-info"><div id="post-title">CF1603E</div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2021-10-31</time><span class="post-meta__separator">|</span><i class="fa fa-inbox post-meta__icon" aria-hidden="true"></i><a class="post-meta__categories" href="/categories/CodeForces/">CodeForces</a></div></div></div><div class="layout" id="content-inner"><article id="post"><div class="article-container" id="post-content"><ul>
+<li>如果 $max(a_1,a_2,\cdots,b_m)\cdot min(a_1,a_2,\cdots,b_m)\geq a_1+a_2+\cdots+b_m$，则整数序列 $a_1,a_2,\cdots,b_m$ 被称为好的。</li>
+<li>如果 $a$ 的每个非空<strong>子序列</strong>都是好的，则整数序列 $a_1,a_2,\cdots,a_n$ 被称为完美的。</li>
+<li>给定两个整数 $n$ 和 $M$，$M$ 是素数。求完美序列 $a_1,a_2,\cdots,a_n$ 且每项满足 $1\leq a_i\leq n+1$ 的数量，对 $M$ 取模。</li>
+<li>$1\leq n\leq 200,10^8\leq M\leq 10^9$。<span id="more"></span>
+</li>
+</ul>
+<h3 id="sol"><a href="#sol" class="headerlink" title="sol"></a>sol</h3><ul>
+<li>可以发现 一个序列是完美的 等价于 将它从小到大排序后的序列是完美的（即顺序无关）。</li>
+</ul>
+<h4 id="判断一个从小到大的序列是否是完美的"><a href="#判断一个从小到大的序列是否是完美的" class="headerlink" title="判断一个从小到大的序列是否是完美的"></a>判断一个从小到大的序列是否是完美的</h4><ul>
+<li><p>以下的序列，$a$ 都是从小到大的序列。</p>
+</li>
+<li><p>发现这等价于这个序列的所有前缀都是好的。</p>
+<ul>
+<li>假设选出的子序列的最小/最大下标分别为 $l,r$，那么 $mul\geq a_1\cdot a_r\geq a_1+a_2+\cdots a_r\geq sum$。</li>
+</ul>
+</li>
+<li><p>这还不够，我们再找一些条件。</p>
+</li>
+</ul>
+<ol>
+<li>$a_k\geq k$。<ul>
+<li>如果不满足，则 $a_1\cdot a_k&lt;a_1\cdots k&lt;a_1+a_2+\cdots a_r$ 矛盾。</li>
+</ul>
+</li>
+<li>若存在 $a_k=k$，则 $a_1=a_2=\cdots=a_k=k$。<ul>
+<li>$a_1\cdot a_k=a_1\cdot k\geq a_1+a_2+\cdots a_r$，即 $(a_1-a_1)+(a_2-a_1)+\cdots+(a_k-a_1)\leq 0$，而 $a_i\geq a_1$，所以 $a_i=k$。</li>
+<li>因此 $a_n=n$ 只有一种方案，否则 $a_n=n+1$。</li>
+</ul>
+</li>
+<li>如果 $a_n=n+1,a_i\geq i+1$，那么整个序列是完美的 等价于 整个序列是好的。<ul>
+<li>整个序列是好的当且仅当 $(a_1-a_1)+(a_2-a_1)+\cdots+(a_n-a_1)\leq a_1$。</li>
+<li>整个序列是完美的显然必须满足整个序列是好的。</li>
+<li>考虑前缀 $1..k$，它是好的当且仅当 $(a_1-a_1)+(a_2-a_1)+\cdots+(a_k-a_1)\leq a_1\cdot (a_k-k)$，若满足 $(a_1-a_1)+(a_2-a_1)+\cdots+(a_n-a_1)\leq a_1$（整个序列是好的） 则一定满足上述条件，而每个前缀都是好的所以整个序列是完美的。</li>
+</ul>
+</li>
+<li>如果 $a_n=n+1,a_i\geq i$，那么整个序列是完美的 等价于 满足条件 2，且整个序列是好的。<ul>
+<li>满足条件 2，假设 $a_1=a_2=\cdots=a_k=k$，对于长度不超过 $k$ 的前缀显然都是好的。</li>
+<li>长度超过 $k$ 的前缀证明和 3 类似。</li>
+</ul>
+</li>
+</ol>
+<h4 id="从小到大的完美序列的方案数"><a href="#从小到大的完美序列的方案数" class="headerlink" title="从小到大的完美序列的方案数"></a>从小到大的完美序列的方案数</h4><ul>
+<li>$a_n=n$ 显然方案唯一，考虑如何计算 $a_n=n+1$ 的方案数。</li>
+<li><p>固定 $a_1$ 的值：</p>
+<ul>
+<li>$a_1\leq a_2\leq \cdots \leq a_n$。</li>
+<li>对于 $i\leq a_1$，$a_1\leq a_i\leq n+1$<ul>
+<li>$a_2\cdots a_{i-1}$ 不能 $&lt;a_1$，否则就和单调性（从小到大）矛盾。</li>
+<li>$a_{a_1}$ 可以是 $a_{a_1}$ 也可以是更大的数。</li>
+<li>你也可以把这个条件当成：对于 $i\lt a_1$，$i+1\leq a_i\leq n+1$ 且 $a_1\leq a_{a_1}\leq n+1$，但是这个形式不便于之后的计算。</li>
+</ul>
+</li>
+<li>对于 $i&gt;a_1$，$i+1\leq a_i\leq n+1$<ul>
+<li>$a_i$ 不能取 $i$，否则就和 $a_1$ 的值矛盾（条件2）。</li>
+</ul>
+</li>
+<li><p>$(a_1-a_1)+(a_2-a_1)+\cdots+(a_n-a_1)\leq a_1$。</p>
+</li>
+<li><p>设 $b_i=a_i-a_1$，那么：</p>
+<ul>
+<li>$b_1=0$</li>
+<li>$0\leq b_i\leq n+1-a_1$</li>
+<li>$b_1+b_2+\cdots+b_n\leq a_1$</li>
+<li>$b_n\geq n+1-a_1$，$b_{n-1}\geq n-a_1$，…，$b_{a_1+1}\geq 2$</li>
+</ul>
+</li>
+<li>显然固定 $a_1$ 后，$b$ 和 $a$ 是一一对应的。</li>
+</ul>
+</li>
+<li><p>由于需要满足 $b_n\geq n+1-a_1$，$b_{n-1}\geq n-a_1$，…，$b_{a_1+1}\geq 2$ 和 $b_1+b_2+\cdots+b_n\leq a_1$ 这两个条件，$a_1$ 大概只有 $O(\sqrt n)$ 种取值。</p>
+</li>
+<li>枚举发现 $n$ 取最大值 $200$ 时，$a_1\geq n-17$。</li>
+</ul>
+<h4 id="完美序列的方案数"><a href="#完美序列的方案数" class="headerlink" title="完美序列的方案数"></a>完美序列的方案数</h4><ul>
+<li>即上面的做法的 $b$ 顺序可以任意排列。</li>
+<li>依旧固定 $a$ 的最小值 $x(x\geq n-17)$：<ul>
+<li>设 $b_i=a_i-x$，那么：<ul>
+<li>$\exist k,b_k=0$</li>
+<li>$0\leq b_i\leq n+1-x$</li>
+<li>$b_1+b_2+\cdots+b_n\leq x$</li>
+<li>$\geq 1$ 个数 $\geq n+1-x$，$\geq 2$ 个数 \geq n-x$，…，$\geq n-x$ 个数 $\geq 2$。<br>这等价于 $\leq x$ 个数 $\leq 1$，$\leq x+1$ 个数 $\leq 2$，…，$\leq n-1$ 个数 $\leq n-x$（再加个 $\leq n$ 个数 $\leq n+1-x$ 也不影响）。</li>
+</ul>
+</li>
+<li>对 $b$ 计数，设 $dp[i][j][k]$ 表示考虑完值 $\leq i$ 的位置，共选了 $j(j\leq x+i-1)$ 个数，选的数之和为 $k$ 的方案数。转移枚举有 $t$ 个值为 $i$ 的位置，从 $\frac{dp[i-1][j-t][k-i*t]}{t!}$ 转移过来。除这个阶乘是因为组合数选位置，最后计算答案要乘上 $n!$。</li>
+</ul>
+</li>
+<li>实现时可以使用记忆化，实际用到的状态并不多。理论时间复杂度为 $O(n^3\sqrt n\log n)$，最后答案要 $+1$（全为 $n$）。</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">int</span> n,Mod,x;</span><br><span class="line">ll fac[<span class="number">210</span>],inv[<span class="number">210</span>];</span><br><span class="line"><span class="keyword">int</span> dp[<span class="number">210</span>][<span class="number">210</span>][<span class="number">210</span>];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">solve</span><span class="params">(<span class="keyword">int</span> i,<span class="keyword">int</span> j,<span class="keyword">int</span> k)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (!i) <span class="keyword">return</span> (k?<span class="number">0</span>:inv[j]);</span><br><span class="line">	<span class="keyword">if</span> (j&gt;x+i<span class="number">-1</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">if</span> (~dp[i][j][k]) <span class="keyword">return</span> dp[i][j][k];</span><br><span class="line">	<span class="keyword">int</span> res=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> t=<span class="number">0</span>;t&lt;=j&amp;&amp;i*t&lt;=k;t++)</span><br><span class="line">		res=(res+<span class="built_in">solve</span>(i<span class="number">-1</span>,j-t,k-i*t)*inv[t])%Mod;</span><br><span class="line">	dp[i][j][k]=res; <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">&quot;%d%d&quot;</span>,&amp;n,&amp;Mod);</span><br><span class="line">	fac[<span class="number">0</span>]=<span class="number">1</span>; <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++) fac[i]=fac[i<span class="number">-1</span>]*i%Mod;</span><br><span class="line">	inv[<span class="number">1</span>]=<span class="number">1</span>; <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">2</span>;i&lt;=n;i++) inv[i]=(Mod-Mod/i)*inv[Mod%i]%Mod;</span><br><span class="line">	inv[<span class="number">0</span>]=<span class="number">1</span>; <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++) inv[i]=inv[i<span class="number">-1</span>]*inv[i]%Mod;</span><br><span class="line">	<span class="keyword">int</span> ans=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span> (x=<span class="built_in">max</span>(<span class="number">1</span>,n<span class="number">-17</span>);x&lt;=n+<span class="number">1</span>;x++)&#123;</span><br><span class="line">		<span class="built_in">memset</span>(dp,<span class="number">-1</span>,<span class="built_in"><span class="keyword">sizeof</span></span>(dp));</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> k=<span class="number">1</span>;k&lt;=x;k++) ans=(ans+<span class="built_in">solve</span>(n+<span class="number">1</span>-x,n,k))%Mod;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;%lld\n&quot;</span>,(ans*fac[n]+<span class="number">1</span>)%Mod);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure></div></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">hydd</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://hydd-new.github.io/CF1603E/">https://hydd-new.github.io/CF1603E/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://hydd-new.github.io">hydd's blog</a>！</span></div></div><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E8%AE%A1%E6%95%B0dp/">计数dp</a></div><nav id="pagination"><div class="next-post pull-right"><a href="/min-25/"><span>min_25筛</span><i class="fa fa-chevron-right"></i></a></div></nav></div></div><footer class="footer-bg" style="background-image: url(https://cdn.jsdelivr.net/gh/hydd-new/image-hosting@master/topimg.jpg)"><div class="layout" id="footer"><div class="copyright">&copy;2020 - 2021 By hydd</div><div class="framework-info"><span>驱动 - </span><a target="_blank" rel="noopener" href="http://hexo.io"><span>Hexo</span></a><span class="footer-separator">|</span><span>主题 - </span><a target="_blank" rel="noopener" href="https://github.com/Molunerfinn/hexo-theme-melody"><span>Melody</span></a></div><div class="footer_custom_text">hitokoto</div></div></footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i><script src="https://cdn.jsdelivr.net/npm/animejs@latest/anime.min.js"></script><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@latest/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-ui-pack@latest/velocity.ui.min.js"></script><script src="/js/utils.js?version=1.9.0"></script><script src="/js/fancybox.js?version=1.9.0"></script><script src="/js/sidebar.js?version=1.9.0"></script><script src="/js/copy.js?version=1.9.0"></script><script src="/js/fireworks.js?version=1.9.0"></script><script src="/js/transition.js?version=1.9.0"></script><script src="/js/scroll.js?version=1.9.0"></script><script src="/js/head.js?version=1.9.0"></script><script src="/js/search/algolia.js"></script><script type="text/x-mathjax-config">MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+    processEscapes: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+  },
+  CommonHTML: {
+    linebreaks: { automatic: true, width: "90% container" }
+  },
+  "HTML-CSS": { 
+    linebreaks: { automatic: true, width: "90% container" }
+  },
+  "SVG": { 
+    linebreaks: { automatic: true, width: "90% container" }
+  }
+});
+</script><script type="text/x-mathjax-config">MathJax.Hub.Queue(function() {
+  var all = MathJax.Hub.getAllJax(), i;
+  for (i=0; i < all.length; i += 1) {
+    all[i].SourceElement().parentNode.className += ' has-jax';
+  }
+});
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><script>if(/Android|webOS|iPhone|iPod|iPad|BlackBerry/i.test(navigator.userAgent)) {
+  $('#nav').addClass('is-mobile')
+  $('footer').addClass('is-mobile')
+  $('#top-container').addClass('is-mobile')
+}</script><div class="search-dialog" id="algolia-search"><div class="search-dialog__title" id="algolia-search-title">Algolia</div><div id="algolia-input-panel"><div id="algolia-search-input"></div></div><hr><div id="algolia-search-results"><div id="algolia-hits"></div><div id="algolia-pagination"></div><div id="algolia-stats"></div></div><span class="search-close-button"><i class="fa fa-times"></i></span></div><div class="search-mask"></div></body></html>
